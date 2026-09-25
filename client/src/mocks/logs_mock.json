@@ -1,0 +1,18 @@
+[
+  { "stream": "stdout", "message": "[IBM Bob] Starting container fleet deployment" },
+  {
+    "stream": "stdout",
+    "message": "[IBM Bob] IBM Cloud DB schema app_proj_8f92a provisioned (0.18s)"
+  },
+  { "stream": "stdout", "message": "[IBM Bob] Secrets vault keys injected (3 keys)" },
+  { "stream": "stdout", "message": "[IBM Bob] Building image flashmvp/react-fastapi-frontend" },
+  { "stream": "stdout", "message": "[IBM Bob] Image built successfully" },
+  { "stream": "stdout", "message": "[IBM Bob] Container frontend started on port 3001" },
+  {
+    "stream": "stdout",
+    "message": "[IBM Bob] Cloudflare tunnel ready: https://app-8f92a.trycloudflare.com"
+  },
+  { "stream": "stderr", "message": "[WARN] npm: 1 deprecated package in dependency tree" },
+  { "stream": "stdout", "message": "[INFO] uvicorn: Application startup complete." },
+  { "stream": "stdout", "message": "[INFO] GET /products 200 (12ms)" }
+]

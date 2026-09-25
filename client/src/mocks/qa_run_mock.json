@@ -1,0 +1,29 @@
+{
+  "run_id": "run-015",
+  "project_id": "proj_8f92a",
+  "overall_status": "PASSED",
+  "steps": [
+    {
+      "step_id": "lint",
+      "step_name": "ESLint",
+      "status": "PASSED",
+      "duration_ms": 2100,
+      "log_output": "✔ 0 problems (0 errors, 0 warnings)"
+    },
+    {
+      "step_id": "test",
+      "step_name": "Pytest",
+      "status": "PASSED",
+      "duration_ms": 4800,
+      "log_output": "12 passed in 4.21s"
+    },
+    {
+      "step_id": "security",
+      "step_name": "IBM watsonx security scan",
+      "status": "PASSED",
+      "duration_ms": 3200,
+      "log_output": "0 hardcoded secrets, 0 high-severity findings"
+    }
+  ],
+  "deploy_unlocked": true
+}

@@ -1,0 +1,21 @@
+{
+  "name": "flashmvp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "FlashMVP - IBM Bob 2.0 skill pack: specs, QA, deploy and observability",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev.mjs",
+    "dev:full": "node scripts/dev.mjs --full",
+    "dev:api": "node scripts/py.mjs -m uvicorn app.main:app --reload --port 8000",
+    "dev:web": "npm --prefix client run dev",
+    "lint": "npm --prefix client run lint && node scripts/py.mjs -m ruff check . && node scripts/py.mjs -m ruff format --check .",
+    "format": "npm --prefix client run format && node scripts/py.mjs -m ruff format .",
+    "test": "node scripts/py.mjs -m pytest -q",
+    "build": "npm --prefix client run build",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

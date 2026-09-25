@@ -1,0 +1,22 @@
+{
+  "project_id": "proj_8f92a",
+  "network": "net_proj_8f92a",
+  "containers": [
+    {
+      "container_id": "frontend",
+      "name": "proj_8f92a_frontend",
+      "image": "flashmvp/react-fastapi-frontend:latest",
+      "status": "RUNNING",
+      "host_port": 3001,
+      "url": "https://app-8f92a.trycloudflare.com"
+    },
+    {
+      "container_id": "backend",
+      "name": "proj_8f92a_backend",
+      "image": "flashmvp/react-fastapi-backend:latest",
+      "status": "HEALTHY",
+      "host_port": 8001,
+      "url": "https://api-8f92a.trycloudflare.com"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+/* Owner: Person 1 | BL-ARC-01 */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--sp-3);
+}
+.template-card {
+  padding: var(--sp-4);
+  text-align: left;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  cursor: pointer;
+}
+.template-card.is-selected {
+  border-color: var(--ibm-blue-hover);
+  background: rgba(15, 98, 254, 0.18);
+}

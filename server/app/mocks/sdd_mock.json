@@ -1,0 +1,16 @@
+{
+  "project_id": "proj_8f92a",
+  "status": "DRAFT",
+  "requirements": "# Requirements\n\n## User stories\n- As a shopper, I can browse a product catalog with images, prices and stock levels.\n- As a shopper, I can add items to a cart and pay with Stripe Checkout.\n- As an admin, I can create, edit and archive products.\n\n## Constraints\n- Payments must never touch our servers: Stripe Checkout handles card data.\n- The catalog must load in under 1 second for 500 products.\n\n## Business rules\n- An order is confirmed only after the Stripe `checkout.session.completed` webhook arrives.",
+  "design": "# System Design\n\n## Architecture\n- **Frontend:** React + Vite SPA served from IBM Code Engine (port 3000).\n- **Backend:** FastAPI service on IBM Code Engine (port 8000).\n- **Database:** IBM Cloud Databases for PostgreSQL, isolated schema `app_proj_8f92a`.\n- **Secrets:** `STRIPE_SECRET_KEY` and `DATABASE_URL` stored in IBM Secrets Manager.\n\n## Data model\n| Table | Columns |\n| --- | --- |\n| products | id, name, price_cents, stock, image_url, archived |\n| orders | id, stripe_session_id, status, total_cents, created_at |\n\n## API\n| Method | Path | Purpose |\n| --- | --- | --- |\n| GET | /products | List products |\n| POST | /checkout | Create a Stripe Checkout session |\n| POST | /webhooks/stripe | Confirm paid orders |",
+  "tasks": [
+    { "id": "task-001", "description": "Create products and orders tables in schema app_proj_8f92a", "completed": false },
+    { "id": "task-002", "description": "Implement GET /products with pagination", "completed": false },
+    { "id": "task-003", "description": "Implement POST /checkout using Stripe Checkout Sessions", "completed": false },
+    { "id": "task-004", "description": "Handle the Stripe webhook and mark orders as paid", "completed": false },
+    { "id": "task-005", "description": "Build catalog, cart and order confirmation pages", "completed": false }
+  ],
+  "ibm_bindings": { "code_engine": true, "cloud_db": true, "secrets_vault": true, "watsonx_qa": true },
+  "locked": false,
+  "version": 1
+}

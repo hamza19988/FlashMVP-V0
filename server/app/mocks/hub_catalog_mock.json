@@ -1,0 +1,5 @@
+[
+  { "project_id": "proj_8f92a", "app_name": "E-Commerce Store", "template": "react-fastapi", "status": "RUNNING", "public_url": "https://app-8f92a.trycloudflare.com", "deployed_at": "2026-09-25T14:32:00Z", "owner": "dev@example.com", "ibm_region": "us-south" },
+  { "project_id": "proj_3b10c", "app_name": "Internal Ticketing", "template": "nextjs-go", "status": "STOPPED", "public_url": null, "deployed_at": "2026-09-24T09:15:00Z", "owner": "ops@example.com", "ibm_region": "eu-de" },
+  { "project_id": "proj_77d1e", "app_name": "Sales Dashboard", "template": "react-fastapi", "status": "CRASHED", "public_url": "https://app-77d1e.trycloudflare.com", "deployed_at": "2026-09-23T17:40:00Z", "owner": "data@example.com", "ibm_region": "us-east" }
+]

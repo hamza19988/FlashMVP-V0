@@ -1,0 +1,58 @@
+/*
+ * Design tokens - the ONLY place raw colors, radii and font stacks live.
+ * Owner: Person 1. Everyone else uses var(--token) - never hard-coded hex values.
+ * Palette follows IBM Carbon hues on a deep navy base (dark glassmorphism).
+ */
+:root {
+  /* Base */
+  --ink-900: #06102a;
+  --ink-800: #0a1733;
+  --ink-700: #12224a;
+  --text: #f2f4f8;
+  --text-muted: #a2a9b0;
+  --text-faint: #6f7680;
+
+  /* Brand + status */
+  --ibm-blue: #0f62fe;
+  --ibm-blue-hover: #4589ff;
+  --cyan: #33b1ff;
+  --purple: #a56eff;
+  --success: #42be65;
+  --warning: #f1c21b;
+  --danger: #fa4d56;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(12px);
+
+  /* Type */
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.75rem;
+  --fs-2xl: 2.5rem;
+
+  /* Space (4px grid) */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  /* Shape + motion */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --ease: cubic-bezier(0.2, 0, 0.38, 0.9);
+  --dur: 160ms;
+
+  --header-h: 64px;
+  --content-max: 1200px;
+}

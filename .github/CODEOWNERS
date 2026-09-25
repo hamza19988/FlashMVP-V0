@@ -1,0 +1,83 @@
+# Who must review changes to which paths. Replace the @handles with real GitHub usernames.
+#   Person 1 - Lead Frontend & SDD Architect         -> @person1
+#   Person 2 - Interactive QA & Observability        -> @person2
+#   Person 3 - IBM Agent Engine & Core Skills        -> @person3
+#   Person 4 - IBM Cloud Infra & Skill Pack          -> @person4
+# Later rules win. Keep this file in sync with docs/team/OWNERSHIP.md.
+
+# Default: the lead reviews anything unclaimed
+*                                         @person1
+
+# ── Client platform (Person 1) ────────────────────────────────
+/client/                                  @person1
+/client/src/components/ui/                @person1
+/client/src/components/shell/             @person1
+/client/src/components/sdd/               @person1
+/client/src/components/infra/             @person1
+/client/src/app/                          @person1
+/client/src/styles/                       @person1
+
+# ── QA, playground, telemetry, hub UI (Person 2) ──────────────
+/client/src/components/qa/                @person2
+/client/src/components/playground/        @person2
+/client/src/components/telemetry/         @person2
+/client/src/components/portal/            @person2
+/client/src/pages/QAPage.jsx              @person2
+/client/src/pages/PlaygroundPage.jsx      @person2
+/client/src/pages/HubPage.jsx             @person2
+/client/src/hooks/useLogStream.js         @person2
+/client/src/api/qa.js                     @person2 @person3
+/client/src/api/runs.js                   @person2 @person3
+/client/src/api/containers.js             @person2 @person4
+/client/src/api/hub.js                    @person2 @person4
+
+# ── Backend core + agent engine (Person 3) ────────────────────
+/server/                                  @person3
+/server/app/core/                         @person3
+/server/app/main.py                       @person3
+/server/app/bob/client.py                 @person3
+/server/app/bob/orchestrator.py           @person3
+/server/app/bob/skill_manifest_parser.py  @person3
+/server/app/bob/skill_watsonx_qa.py       @person3
+/server/app/services/spec_generator.py    @person3
+/server/app/services/qa_service.py        @person3
+/server/app/services/run_store.py         @person3
+/server/app/api/specs.py                  @person3
+/server/app/api/qa.py                     @person3
+/server/app/api/runs.py                   @person3
+
+# ── Cloud infra skills (Person 4) ─────────────────────────────
+/server/app/bob/skill_cloud_db.py         @person4
+/server/app/bob/skill_secrets_vault.py    @person4
+/server/app/bob/skill_code_engine.py      @person4
+/server/app/services/manifest_parser.py   @person4
+/server/app/services/template_service.py  @person4
+/server/app/services/container_service.py @person4
+/server/app/services/tunnel_service.py    @person4
+/server/app/services/hub_service.py       @person4
+/server/app/api/projects.py               @person4
+/server/app/api/secrets.py                @person4
+/server/app/api/containers.py             @person4
+/server/app/api/deploy.py                 @person4
+/server/app/api/hub.py                    @person4
+/server/templates/                        @person4
+/docker-compose.yml                       @person4
+
+# ── Contracts: both producer and consumer must approve ────────
+/server/app/schemas/spec.py               @person3 @person1
+/server/app/schemas/qa.py                 @person3 @person2
+/server/app/schemas/run.py                @person3 @person2
+/server/app/schemas/secret.py             @person4 @person1
+/server/app/schemas/container.py          @person4 @person2
+/server/app/schemas/hub.py                @person4 @person2
+/server/app/schemas/                      @person3 @person4
+/server/app/mocks/                        @person3 @person4
+/client/src/mocks/                        @person1 @person2
+/client/src/api/specs.js                  @person1 @person3
+/client/src/api/secrets.js                @person1 @person4
+
+# ── Repo-wide conventions ─────────────────────────────────────
+/AGENTS.md                                @person1
+/.bob/                                    @person1
+/.github/                                 @person1
+/docs/decisions/                          @person1 @person3

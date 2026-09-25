@@ -1,0 +1,179 @@
+/* App shell: header, workflow rail, page frame. Owner: Person 1. */
+
+.app-shell {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bob-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: rgba(6, 16, 42, 0.72);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+}
+.bob-header__inner {
+  height: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--sp-5);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+}
+
+/* The one animated element in the product: the live Bob strip. */
+.bob-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(90deg, var(--ibm-blue), var(--purple), var(--cyan), var(--ibm-blue));
+  background-size: 300% 100%;
+  animation: bob-flow 8s linear infinite;
+}
+.bob-strip__pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  animation: bob-pulse 2s ease-out infinite;
+}
+@keyframes bob-flow {
+  to {
+    background-position: 300% 0;
+  }
+}
+@keyframes bob-pulse {
+  70% {
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.bob-header__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.demo-pill {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: var(--fs-xs);
+  color: var(--warning);
+  border: 1px solid rgba(241, 194, 27, 0.4);
+}
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: var(--fs-sm);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text);
+  background: var(--glass-bg);
+}
+
+.step-nav {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+}
+.step-nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 8px 14px 8px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  text-decoration: none;
+}
+.step-nav__item:hover:not(.is-locked) {
+  color: var(--text);
+}
+.step-nav__item.active {
+  color: var(--text);
+  border-color: var(--ibm-blue-hover);
+  background: rgba(15, 98, 254, 0.18);
+}
+.step-nav__item.is-locked {
+  opacity: 0.5;
+}
+.step-nav__num {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--glass-bg-strong);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-5);
+  display: grid;
+  gap: var(--sp-5);
+  align-content: start;
+  flex: 1;
+}
+.page__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+.page__title {
+  font-size: var(--fs-xl);
+}
+.page__lede {
+  margin-top: var(--sp-2);
+  color: var(--text-muted);
+  max-width: 64ch;
+}
+
+@media (max-width: 720px) {
+  .bob-strip {
+    display: none;
+  }
+  .bob-header__inner {
+    padding: 0 var(--sp-4);
+  }
+  .page {
+    padding: var(--sp-4);
+  }
+}

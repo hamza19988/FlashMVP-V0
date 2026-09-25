@@ -1,0 +1,13 @@
+# Keep IBM Bob's context focused on source code.
+node_modules/
+**/node_modules/
+.venv/
+**/__pycache__/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+client/package-lock.json
+*.log
+.env
+**/.env

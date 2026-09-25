@@ -1,0 +1,29 @@
+{
+  "project_id": "proj_8f92a",
+  "steps": [
+    {
+      "id": "lint",
+      "name": "ESLint",
+      "command": "npm run lint",
+      "order": 1,
+      "enabled": true,
+      "custom": false
+    },
+    {
+      "id": "test",
+      "name": "Pytest",
+      "command": "pytest",
+      "order": 2,
+      "enabled": true,
+      "custom": false
+    },
+    {
+      "id": "security",
+      "name": "IBM watsonx security scan",
+      "command": "bob-skill-watsonx-qa scan",
+      "order": 3,
+      "enabled": true,
+      "custom": false
+    }
+  ]
+}

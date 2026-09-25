@@ -1,0 +1,14 @@
+{
+  "total_apps": 3,
+  "running_apps": 1,
+  "total_users": 18,
+  "series": [
+    { "date": "2026-09-19", "active_users": 4, "deployments": 1 },
+    { "date": "2026-09-20", "active_users": 6, "deployments": 2 },
+    { "date": "2026-09-21", "active_users": 7, "deployments": 1 },
+    { "date": "2026-09-22", "active_users": 10, "deployments": 3 },
+    { "date": "2026-09-23", "active_users": 12, "deployments": 4 },
+    { "date": "2026-09-24", "active_users": 15, "deployments": 2 },
+    { "date": "2026-09-25", "active_users": 18, "deployments": 5 }
+  ]
+}

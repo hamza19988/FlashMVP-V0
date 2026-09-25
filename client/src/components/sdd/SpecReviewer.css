@@ -1,0 +1,13 @@
+/* Owner: Person 1 | BL-SDD-02 / BL-SDD-03 */
+.sdd-raw {
+  margin: 0;
+  white-space: pre-wrap;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+.sdd-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: flex-end;
+}

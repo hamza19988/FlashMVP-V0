@@ -1,0 +1,29 @@
+# Full stack in containers (optional - `npm run dev:full` does the same natively).
+#   docker compose up --build
+services:
+  api:
+    build: ./server
+    env_file: ./server/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./server/app:/srv/app
+      - ./server/templates:/srv/templates
+      # Real engine (DEMO_MODE=false) drives the host Docker daemon:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    environment:
+      VITE_DEMO_MODE: "false"
+      VITE_PROXY_TARGET: http://api:8000
+    ports:
+      - "5173:5173"
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - api

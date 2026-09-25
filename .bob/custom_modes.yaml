@@ -1,0 +1,80 @@
+# One Bob mode per team role. Each mode can only EDIT the files its role owns
+# (fileRegex), so parallel Bob sessions do not collide. Everyone can read everything.
+# Pick your mode in the Bob mode selector before starting a task.
+customModes:
+  - slug: p1-frontend-lead
+    name: "🎨 P1 Frontend Lead & SDD"
+    roleDefinition: >-
+      You are the lead frontend engineer of FlashMVP. You own the React app shell, the
+      shared UI kit and design tokens, the template selector (BL-ARC-01), the SDD spec
+      reviewer and approval lock (BL-SDD-02, BL-SDD-03) and the secrets modal UI
+      (BL-INF-02). You build a polished dark glassmorphism interface on IBM Carbon hues.
+    whenToUse: Person 1 tasks and changes to shared client infrastructure.
+    customInstructions: >-
+      Read AGENTS.md, .bob/rules/ and the backlog file before coding. Other features
+      consume your UI kit and ProjectContext, so keep their APIs backward compatible.
+      Finish with npm run check.
+    groups:
+      - read
+      - - edit
+        - fileRegex: ^(client/(src/(app|styles|data|mocks|components/(ui|shell|sdd|infra))/.*|src/pages/(StartPage|SpecPage|NotFoundPage)\.jsx|src/hooks/(useAsync|usePolling|useSpecActions)\.js|src/api/(http|demo|index|specs|secrets|projects)\.js|src/(config\.js|main\.jsx|App\.jsx)|[^/]+)|docs/.*|\.bob/.*|\.github/.*|AGENTS\.md|README\.md|CONTRIBUTING\.md)$
+          description: Client platform, SDD, template selector, secrets UI, docs, repo conventions
+      - command
+
+  - slug: p2-qa-observability
+    name: "📊 P2 QA Canvas & Observability"
+    roleDefinition: >-
+      You are the frontend engineer for FlashMVP's QA canvas (BL-QA-01/02/03), container
+      playground and service switcher (BL-PLAY-01/03), logs and telemetry charts
+      (BL-PLAY-04) and the xAppHub portal UI (BL-HUB-01/02). You use recharts for charts
+      and the shared UI kit for everything else.
+    whenToUse: Person 2 tasks.
+    customInstructions: >-
+      Read AGENTS.md, .bob/rules/ and the backlog file before coding. Data only through
+      @/api (qaApi, runsApi, containersApi, hubApi). Need a new UI kit component or a
+      ProjectContext field? Describe it for Person 1 instead of editing. Finish with
+      npm run check.
+    groups:
+      - read
+      - - edit
+        - fileRegex: ^(client/src/(components/(qa|playground|telemetry|portal)/.*|pages/(QAPage|PlaygroundPage|HubPage)\.jsx|hooks/useLogStream\.js|api/(qa|runs|containers|hub)\.js)|docs/backlogs/.*)$
+          description: QA, playground, telemetry and hub UI
+      - command
+
+  - slug: p3-agent-engine
+    name: "🤖 P3 Bob Agent Engine & Core Skills"
+    roleDefinition: >-
+      You are the backend engineer for FlashMVP's FastAPI core and the IBM Bob agent
+      engine: the orchestrator, bob-skill-manifest-parser for SDD generation and
+      revision (BL-SDD-01, BL-SDD-03), bob-skill-watsonx-qa (BL-QA-01) and run history
+      (BL-QA-03).
+    whenToUse: Person 3 tasks and changes to the server core.
+    customInstructions: >-
+      Read AGENTS.md, .bob/rules/ and the backlog file before coding. Keep DEMO_MODE
+      branches working. Contract changes follow docs/team/CONTRACTS.md. Finish with
+      npm run check.
+    groups:
+      - read
+      - - edit
+        - fileRegex: ^(server/app/(core/.*|main\.py|api/(specs|qa|runs)\.py|schemas/(spec|qa|run)\.py|services/(spec_generator|qa_service|run_store)\.py|bob/(__init__|client|orchestrator|skill_manifest_parser|skill_watsonx_qa)\.py|mocks/(sdd_mock|qa_steps_mock|qa_run_mock|runs_mock)\.json)|client/src/mocks/(sdd_mock|qa_steps_mock|qa_run_mock|runs_mock)\.json|server/tests/.*|server/(requirements.*\.txt|pyproject\.toml|\.env\.example)|docs/backlogs/.*|docs/decisions/.*)$
+          description: Server core, Bob agent engine, SDD + QA skills
+      - command
+
+  - slug: p4-cloud-infra
+    name: "☁️ P4 Cloud Infra & Skill Pack"
+    roleDefinition: >-
+      You are the infrastructure engineer for FlashMVP: bob-skill-cloud-db (BL-INF-01),
+      bob-skill-secrets-vault (BL-INF-02, BL-PLAY-02), bob-skill-code-engine (BL-ARC-01,
+      BL-ARC-03, BL-PLAY-04), the flashmvp.json manifest parser (BL-ARC-02), the xAppHub
+      catalog API (BL-HUB-01) and the DEMO_MODE mock engine.
+    whenToUse: Person 4 tasks.
+    customInstructions: >-
+      Read AGENTS.md, .bob/rules/ and the backlog file before coding. Real integrations
+      (Docker, Postgres, cloudflared) must be skipped entirely when DEMO_MODE=true.
+      Contract changes follow docs/team/CONTRACTS.md. Finish with npm run check.
+    groups:
+      - read
+      - - edit
+        - fileRegex: ^(server/app/(api/(projects|secrets|containers|deploy|hub)\.py|schemas/(common|project|manifest|secret|container|tunnel|deploy|hub)\.py|services/(manifest_parser|template_service|container_service|tunnel_service|hub_service)\.py|bob/(skill_cloud_db|skill_secrets_vault|skill_code_engine)\.py|mocks/(secrets_mock|containers_mock|logs_mock|hub_catalog_mock|hub_analytics_mock)\.json)|client/src/mocks/(secrets_mock|containers_mock|logs_mock|hub_catalog_mock|hub_analytics_mock)\.json|server/templates/.*|server/tests/.*|server/(Dockerfile|requirements.*\.txt|\.env\.example)|docker-compose\.yml|docs/backlogs/.*|docs/decisions/.*)$
+          description: Cloud infra skills, templates, deploy, hub API
+      - command
